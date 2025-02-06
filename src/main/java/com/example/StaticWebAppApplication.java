@@ -12,8 +12,8 @@ public class StaticWebAppApplication {
 
     @GetMapping("/")
     public String index(final Model model) {
-        model.addAttribute("title", "I have successfuly built a sprint boot application using Maven");
-        model.addAttribute("msg", "This application is deployed on to Kubernetes using Argo CD");
+        model.addAttribute("title", "My CICD Bench Project Usecase-102");
+        model.addAttribute("msg", "This application is integrated with Jenkins and Deployed onto Kubernetes by M Dhivya");
         return "index";
     }
 
