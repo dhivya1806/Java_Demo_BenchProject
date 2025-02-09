@@ -38,7 +38,7 @@ pipeline {
                 script{
                     sh '''
                     echo 'Buid Docker Image'
-                    docker build -t dhivya1806/demofeb9:${BUILD_NUMBER} -f  Java_Demo_BenchProject/Dockerfile .
+                    docker build -t dhivya1806/demofeb9:${BUILD_NUMBER} .
                     '''
                 }
             }
