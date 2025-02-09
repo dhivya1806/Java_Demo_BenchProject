@@ -25,13 +25,12 @@ pipeline {
       }
       steps {
         withCredentials([string(credentialsId: 'sonar', variable: 'SONAR_AUTH_TOKEN')]) {
-          dir('Java_Demo_BenchProject'){
+          
             sh '''
             mvn sonar:sonar \
             -Dsonar.login=$SONAR_AUTH_TOKEN \
             -Dsonar.host.url=${SONAR_URL}
-            '''
-          }  
+            '''  
         }
       }
     }
