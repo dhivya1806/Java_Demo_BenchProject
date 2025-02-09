@@ -16,9 +16,7 @@ pipeline {
     stage('Build and Test') {
       steps {
         sh 'ls -ltr'
-        dir("${WORKSPACE}") { 
           sh 'mvn clean install'
-        }
       }
     }
     stage('Static Code Analysis') {
