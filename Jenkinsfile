@@ -16,7 +16,7 @@ pipeline {
     stage('Build and Test') {
       steps {
         sh 'ls -ltr'
-        dir('Java_Demo_BenchProject'){
+        dir("${WORKSPACE}") { 
           sh 'mvn clean install'
         }
       }
