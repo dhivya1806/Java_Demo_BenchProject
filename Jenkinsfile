@@ -1,3 +1,4 @@
+
 pipeline {
   agent any
   tools {
@@ -21,7 +22,7 @@ pipeline {
     }
     stage('Static Code Analysis') {
       environment {
-        SONAR_URL = "http://44.220.55.193:9000/"
+        SONAR_URL = "http://54.221.107.141:9000/"
       }
       steps {
         withCredentials([string(credentialsId: 'sonar', variable: 'SONAR_AUTH_TOKEN')]) {
@@ -36,11 +37,10 @@ pipeline {
      stage('Build Docker'){
             steps{
                 script{
-                    withCredentials([usernamePassword(credentialsId: 'Docker_cred', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
                     sh '''
                     echo 'Buid Docker Image'
                     docker build -t dhivya1806/demofeb9:${BUILD_NUMBER} .
-                  }  '''
+                    '''
                 }
             }
         }
@@ -63,7 +63,7 @@ pipeline {
   stage('Checkout K8S manifest SCM'){
             steps {
                 git credentialsId: 'github_credentials', 
-                url: 'https://github.com/dhivya1806/Java_Demo_BenchProject/argocd_manifest',
+                url: 'https://github.com/dhivya1806/Manifests2_repo.git',
                 branch: 'main'
             }
         }
@@ -90,7 +90,6 @@ pipeline {
                 }
             }
         }
-     }
     
   }
 }
