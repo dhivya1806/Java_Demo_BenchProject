@@ -66,9 +66,12 @@ pipeline {
     
   stage('Checkout K8S manifest SCM'){
             steps {
-                git credentialsId: 'github_credentials', 
-                url: 'https://github.com/dhivya1806/Java_Demo_BenchProject/argocd_manifest',
-                branch: 'main'
+                script {
+                    // Clone the entire repository
+                    sh 'git clone https://github.com/dhivya1806/Java_Demo_BenchProject.git'
+                    dir('Java_Demo_BenchProject/argocd_manifest') {
+                        sh 'ls'
+                    }
             }
         }
     stage('Update K8S manifest & push to Repo'){
