@@ -37,10 +37,12 @@ pipeline {
      stage('Build Docker'){
             steps{
                 script{
+                    withCredentials([usernamePassword(credentialsId: 'Docker_cred', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
                     sh '''
                     echo 'Buid Docker Image'
                     docker build -t dhivya1806/demofeb9:${BUILD_NUMBER} .
                     '''
+                    }
                 }
             }
         }
