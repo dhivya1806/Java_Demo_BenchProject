@@ -57,7 +57,7 @@ pipeline {
                     echo 'Logging in to Docker Hub'
                     echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
                     echo 'Push to Repo'
-                    docker push dhivya1806/demofeb9:${BUILD_NUMBER}
+                    docker push dhivya1806/demo-java-app:${BUILD_NUMBER}
                     '''
                     }
                 }
