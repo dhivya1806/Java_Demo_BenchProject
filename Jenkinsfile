@@ -80,6 +80,7 @@ pipeline {
                 script{
                     withCredentials([string(credentialsId: 'github_credentials', variable: 'GIT_PAT')]) {
                         sh '''
+                        cd argocd_manifest
                         cat deployment.yaml
                         sed -i "s/\\(image:.*:\\)[0-9]\\+/\\1${BUILD_NUMBER}/" deployment.yaml
                         cat deployment.yaml
