@@ -42,7 +42,7 @@ pipeline {
                     echo 'Logging in to Docker Hub'
                     echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
                     echo 'Buid Docker Image'
-                    docker build -t dhivya1806/demofeb9:${BUILD_NUMBER} .
+                    docker build -t dhivya1806/demo-java-app:${BUILD_NUMBER} .
                     '''
                     }
                 }
