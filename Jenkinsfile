@@ -72,6 +72,7 @@ pipeline {
                     dir('Java_Demo_BenchProject/argocd_manifest') {
                         sh 'ls'
                     }
+                }
             }
         }
     stage('Update K8S manifest & push to Repo'){
