@@ -39,6 +39,8 @@ pipeline {
                 script{
                     withCredentials([usernamePassword(credentialsId: 'Docker_cred', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
                     sh '''
+                    echo 'Logging in to Docker Hub'
+                    echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
                     echo 'Buid Docker Image'
                     docker build -t dhivya1806/demofeb9:${BUILD_NUMBER} .
                     '''
