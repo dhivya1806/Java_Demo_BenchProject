@@ -18,7 +18,7 @@ WORKDIR /app
 
 # Copy the JAR file from the build stage
 COPY --from=build /app/target/*.jar app.jar
-
+EXPOSE 3000
 
 # Change ownership of the app files to the non-root user
 RUN chown -R appuser:appgroup /app
