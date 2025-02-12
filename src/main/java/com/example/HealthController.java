@@ -5,11 +5,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/health")
-public class HealthController {
-
-    @GetMapping
-    public String healthCheck() {
+public class HealthCheckController {
+    @GetMapping("/health")
+    public String livenessCheck() {
         return "Application is running";
+    }
+
+    @GetMapping("/ready")
+    public String readinessCheck() {
+        return "Ready to receive request";
     }
 }
