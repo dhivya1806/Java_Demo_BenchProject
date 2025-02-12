@@ -62,7 +62,7 @@ pipeline {
   stage('Checkout K8S manifest SCM'){
             steps {
                 git credentialsId: 'github_credentials', 
-                url: 'https://github.com/dhivya1806/Manifests2_repo.git',
+                url: 'https://github.com/dhivya1806/Java_Demo_BenchProject/argocd_manifest',
                 branch: 'main'
             }
         }
