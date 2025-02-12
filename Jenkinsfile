@@ -88,7 +88,7 @@ pipeline {
                         git remote -v
                         git config user.name "Dhivya"
                         git config user.email "dhivyams97@gmail.com"
-                        git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/dhivya1806/ArgoCD-_Manifest.git.git HEAD:main
+                        git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/dhivya1806/ArgoCD-_Manifest.git HEAD:main
                         '''                        
                     }
                 }
