@@ -64,21 +64,17 @@ pipeline {
            }
         }
     
-  stage('Checkout K8S manifest SCM'){
-              steps {
-                  git credentialsId: 'github_credentials',
-                  url: 'https://github.com/dhivya1806/Java_Demo_BenchProject.git',
-                  branch: 'main'
-    
-                  dir('argocd_manifest') {
-                  sh 'ls -la'  // Check if deployment.yaml is there
-    }
-}
+ stage('Checkout K8S manifest SCM'){
+            steps {
+                git credentialsId: 'github_credentials', 
+                url: 'https://github.com/dhivya1806/ArgoCD-_Manifest.git',
+                branch: 'main'
+            }
         }
     stage('Update K8S manifest & push to Repo'){
             steps {
                 script{
-                    withCredentials([string(credentialsId: 'github_credentials', variable: 'GIT_PAT')]) {
+                     withCredentials([string(credentialsId: 'github_credentials', variable: 'GIT_PAT')]) {
                         sh '''
                         cat deployment.yaml
                         sed -i "s/\\(image:.*:\\)[0-9]\\+/\\1${BUILD_NUMBER}/" deployment.yaml
@@ -92,7 +88,7 @@ pipeline {
                         git remote -v
                         git config user.name "Dhivya"
                         git config user.email "dhivyams97@gmail.com"
-                        git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/dhivya1806/Java_Demo_BenchProject.git HEAD:main
+                        git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/dhivya1806/ArgoCD-_Manifest.git.git HEAD:main
                         '''                        
                     }
                 }
