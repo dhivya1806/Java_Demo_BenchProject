@@ -72,7 +72,6 @@ pipeline {
     
                   dir('argocd_manifest') {
                   sh 'ls -la'  // Check if deployment.yaml is there
-                  sh 'cat deployment.yaml' // Ensure it's accessible
     }
 }
         }
@@ -81,7 +80,6 @@ pipeline {
                 script{
                     withCredentials([string(credentialsId: 'github_credentials', variable: 'GIT_PAT')]) {
                         sh '''
-                        cd argocd_manifest
                         cat deployment.yaml
                         sed -i "s/\\(image:.*:\\)[0-9]\\+/\\1${BUILD_NUMBER}/" deployment.yaml
                         cat deployment.yaml
@@ -94,7 +92,7 @@ pipeline {
                         git remote -v
                         git config user.name "Dhivya"
                         git config user.email "dhivyams97@gmail.com"
-                        git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/dhivya1806/Manifests2_repo.git HEAD:main
+                        git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/dhivya1806/Java_Demo_BenchProject.git HEAD:main
                         '''                        
                     }
                 }
