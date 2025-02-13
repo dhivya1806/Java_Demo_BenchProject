@@ -13,7 +13,7 @@ public class StaticWebAppApplication {
     @GetMapping("/")
     public String index(final Model model) {
         model.addAttribute("title", "My CICD Bench Project Usecase-102");
-        model.addAttribute("msg", "This application is integrated with Jenkins and Deployed onto Kubernetes by M Dhivya on 12 Feb");
+        model.addAttribute("msg", "This application is integrated with Jenkins and Deployed onto Kubernetes by M Dhivya on 12th");
         return "index";
     }
 
