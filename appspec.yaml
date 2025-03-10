@@ -7,4 +7,4 @@ Resources:
         LoadBalancerInfo:
           ContainerName: "ecs-test"
           ContainerPort: 3000
- 
+  
