@@ -2,13 +2,12 @@ version: 0.2
 
 env:
   variables:
-    ECR_REPOSITORY_URI: public.ecr.aws/h3r0b4p3/ecs-test
+    ECR_REPOSITORY_URI: 676206929160.dkr.ecr.us-east-1.amazonaws.com/ecs-test
     IMAGE_TAG: 1
 phases:
   install:
     runtime-versions:
       java: corretto17  # Specify Java version
-      docker: 20  # Ensure Docker is installed
     commands:
       - echo "Installing dependencies..."
       - mvn clean install -DskipTests  # Install dependencies but skip tests
