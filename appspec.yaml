@@ -3,7 +3,7 @@ Resources:
   - TargetService:
       Type: AWS::ECS::Service
       Properties:
-        TaskDefinition: "arn:aws:ecs:us-east-1:676206929160:task-definition/ecs-testtd:1"
+        TaskDefinition: "arn:aws:ecs:us-east-1:676206929160:task-definition/democluster-td:2"
         LoadBalancerInfo:
           ContainerName: "ecs-test"
           ContainerPort: 3000
