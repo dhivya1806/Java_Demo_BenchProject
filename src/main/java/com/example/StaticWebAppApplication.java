@@ -12,8 +12,8 @@ public class StaticWebAppApplication {
 
     @GetMapping("/")
     public String index(final Model model) {
-        model.addAttribute("title", "My CICD Bench Project Usecase-102");
-        model.addAttribute("msg", "This application is integrated with Jenkins and Deployed onto Kubernetes by M Dhivya on 13th");
+        model.addAttribute("title", "My ECS Project");
+        model.addAttribute("msg", "This is the test application using AWS CICD tools on ECS");
         return "index";
     }
 
