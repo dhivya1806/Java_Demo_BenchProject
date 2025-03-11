@@ -1,5 +1,5 @@
 # Stage 1: Build the application
-FROM maven:3.9.6-eclipse-temurin-17 AS build
+FROM 676206929160.dkr.ecr.us-east-1.amazonaws.com/ecs-test:3.9.6 AS build
 WORKDIR /app
 
 # Copy the project source code
