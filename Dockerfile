@@ -9,7 +9,8 @@ COPY . .
 RUN mvn clean package -DskipTests
 
 # Stage 2: Create a lightweight runtime image
-FROM eclipse-temurin:17-jre-alpine
+FROM public.ecr.aws/docker/library/eclipse-temurin:17-jre-alpine
+
 
 # Create a non-root user (e.g., 'appuser') and set permissions
 RUN addgroup -S appgroup && adduser -S appuser -G appgroup
