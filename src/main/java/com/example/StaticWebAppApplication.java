@@ -13,7 +13,7 @@ public class StaticWebAppApplication {
     @GetMapping("/")
     public String index(final Model model) {
         model.addAttribute("title", "My ECS Project");
-        model.addAttribute("msg", "This is the test application using AWS CICD tools on ECS with fine grained limited access 1");
+        model.addAttribute("msg", "This is the test application using AWS CICD tools on ECS with fine grained limited access 2");
         return "index";
     }
 
